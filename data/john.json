@@ -1,0 +1,19 @@
+{
+  "packName": "Awesome pack name!!",
+  "stacks": [
+    {
+      "name": "Awesome stack name!",
+      "tacks": [
+        {
+          "text": "Resurrect dinosaurs!"
+        },
+        {
+          "text": "Blow up the moon"
+        },
+        {
+          "text": "Solve global climate change"
+        }
+      ]
+    }
+  ]
+}

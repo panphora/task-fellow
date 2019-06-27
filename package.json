@@ -1,0 +1,32 @@
+{
+  "name": "task-fellow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently --kill-others \"livereload . -w 1000 -e html,njk,sass,css,js,png,gif,jpg\" \"nodemon server.js -e html,njk,sass,css,js,png,gif,jpg -q\" \"parcel public/index.js --out-dir ./public/dist --no-hmr\"",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "data-store": "^3.1.0",
+    "deep-extend": "^0.6.0",
+    "directory-tree": "^2.2.3",
+    "esm": "^3.2.25",
+    "express": "^4.17.0",
+    "jsonfile": "^5.0.0",
+    "lodash-es": "^4.17.11",
+    "nunjucks": "^3.2.0",
+    "remakejs": "^0.4.2",
+    "sortablejs": "^1.10.0-rc3"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "livereload": "^0.8.0",
+    "nodemon": "^1.19.1",
+    "parcel": "^1.12.3"
+  }
+}
