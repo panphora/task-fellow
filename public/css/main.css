@@ -1,5 +1,6 @@
 body {
 	font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  overflow-x: scroll;
 }
 
 * {
@@ -46,11 +47,14 @@ body {
 }
 
 .stacks {
-  display: flex;
+  white-space: nowrap;
 }
 
 .stack {
+  display: inline-block;
+  height: 100%;
   width: 300px;
+  vertical-align: top;
   margin-right: 1rem;
   box-shadow: 0 0.25rem 1rem rgba(48,55,66,.15)
 }

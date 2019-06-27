@@ -1,5 +1,10 @@
 {
   "stack": {
-    "name": "Default stack name"
+    "name": "Untitled stack",
+    "tacks": [
+      {
+        "text": "Untitled tack"
+      }
+    ]
   }
 }
