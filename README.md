@@ -6,12 +6,9 @@
 
 **Important:** Don't just run `node server.js` because the front-end JS won't get transpiled. Use `npm run dev` instead.
 
+<br/><br/><br/><br/><br/>
 
-
-
-
-
-### Getting started with the code
+### Getting Started with Remake.js
 
 - You're free to modify whatever you want. Add user accounts, play around with how the data is saved -- whatever! It's your project!
 - However, the only files you should have to edit to get started in Remake.js are the templates and JSON files in the `./templates` folder.
