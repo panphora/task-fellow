@@ -19,17 +19,26 @@ init({
 });
 
 
-// init sortable
+// tacks sortable init
 
-var tackLists = document.querySelectorAll('.tacks');
-
-Array.from(tackLists).forEach(tacksListElem => {
+let tacksListElems = document.querySelectorAll('.tacks');
+Array.from(tacksListElems).forEach(tacksListElem => {
   var sortable = Sortable.create(tacksListElem, {
     group: "tacks",
     onEnd: function (event) {
       callSaveFunction({targetElement: tacksListElem})
     }
   });
+});
+
+// stacks sortable init
+
+let stacksListElem = document.querySelector(".stacks");
+Sortable.create(stacksListElem, {
+  group: "stacks",
+  onEnd: function (event) {
+    callSaveFunction({targetElement: stacksListElem})
+  }
 });
 
 
