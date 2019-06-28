@@ -6,7 +6,7 @@
 
 **Important:** Don't just run `node server.js` because the front-end JS won't get transpiled. Use `npm run dev` instead.
 
-<br/><br/><br/>
+<br/>
 
 ## Getting Started with Remake.js
 
