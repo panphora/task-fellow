@@ -4,7 +4,9 @@
 2. `npm run dev`
 3. [enable livereload browser extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en)
 
-# Getting started with the code
+**Warning:** Don't just run `node server.js` because the front-end JS won't get transpiled. Use `npm run dev` instead.
+
+### Getting started with the code
 
 - You're free to modify whatever you want. Add user accounts, play around with how the data is saved -- whatever! It's your project!
 - However, the only files you should have to edit to get started in Remake.js are the templates and JSON files in the `./templates` folder.
@@ -22,6 +24,6 @@
 
 - This web app is server rendered (like all Remake.js web apps). It uses Nunjucks for the templating, which is very similar to Jinja. You can find the [docs for Nunjucks here](https://mozilla.github.io/nunjucks/templating.html).
 
-# Warning
+### Warning
 
-- This app doesn't implement real user accounts (they're just simulated). You need to implement user accounts that have their own data yourself or wait for a version of Remake that has real user accounts built in. However, if you just want to play around with Remake.js, this is the perfect project to start with.
+- This app doesn't implement real user accounts _yet_ (they're just simulated). You need to implement user accounts that have their own data yourself or wait for a version of Remake that has real user accounts built in. However, if you just want to play around with Remake.js, this is the perfect project to start with.
