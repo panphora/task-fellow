@@ -1,10 +1,15 @@
-# Get the task-fellow app running
+# Get this app running
 
 1. `npm install`
 2. `npm run dev`
 3. [enable livereload browser extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en)
 
-**Warning:** Don't just run `node server.js` because the front-end JS won't get transpiled. Use `npm run dev` instead.
+**Important:** Don't just run `node server.js` because the front-end JS won't get transpiled. Use `npm run dev` instead.
+
+
+
+
+
 
 ### Getting started with the code
 
