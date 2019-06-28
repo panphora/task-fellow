@@ -5,10 +5,10 @@ import Sortable from 'sortablejs';
 // init remake
 init({
   addItemCallback: function ({itemElem, templateName}) {
-    let stackElem = itemElem;
-    
     if (templateName === "stack") {
-      var sortable = Sortable.create(stackElem.querySelector(".tacks"), {
+      let stackElem = itemElem;
+
+      let sortable = Sortable.create(stackElem.querySelector(".tacks"), {
         group: "tacks",
         onEnd: function (event) {
           callSaveFunction({targetElement: stackElem})
@@ -23,7 +23,7 @@ init({
 
 let tacksListElems = document.querySelectorAll('.tacks');
 Array.from(tacksListElems).forEach(tacksListElem => {
-  var sortable = Sortable.create(tacksListElem, {
+  let sortable = Sortable.create(tacksListElem, {
     group: "tacks",
     onEnd: function (event) {
       callSaveFunction({targetElement: tacksListElem})
