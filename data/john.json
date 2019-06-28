@@ -1,17 +1,63 @@
 {
-  "packName": "Untitled pack",
+  "packName": "My Projects",
   "stacks": [
     {
-      "name": "Untitled stack",
+      "name": "Learning Piano",
       "tacks": [
         {
-          "text": "Resurrect dinosaurs!"
+          "text": "Scales"
         },
         {
-          "text": "Blow up the moon"
+          "text": "Basic chords"
         },
         {
-          "text": "Solve global climate change"
+          "text": "Rhythm"
+        }
+      ]
+    },
+    {
+      "name": "Installing air conditioner",
+      "tacks": [
+        {
+          "text": "Go to Home Depot"
+        },
+        {
+          "text": "Talk to Kevin"
+        },
+        {
+          "text": "Ask for a discount because you know his brother"
+        },
+        {
+          "text": "Settle for 5% discount"
+        },
+        {
+          "text": "Accidentally drop air conditioner on foot while trying to load it in the car"
+        },
+        {
+          "text": "Sue Home Depot"
+        },
+        {
+          "text": "Settle for owning a Home Depot franchise location"
+        },
+        {
+          "text": "Hire Kevin"
+        },
+        {
+          "text": "Pay Kevin for dropping the air conditioner and setting the plan in motion"
+        },
+        {
+          "text": "Install air conditioner"
+        }
+      ]
+    },
+    {
+      "name": "Feed fairies to cat",
+      "tacks": [
+        {
+          "text": "Find fairies under a rock"
+        },
+        {
+          "text": "Feed to Kibbles"
         }
       ]
     }

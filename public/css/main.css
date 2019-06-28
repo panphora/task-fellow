@@ -23,6 +23,7 @@
   height: 100%;
   width: 300px;
   margin-right: 1rem;
+  white-space: normal;
   vertical-align: top;
   font-size: .8rem;
   box-shadow: 0 0.25rem 1rem rgba(48,55,66,.15)
