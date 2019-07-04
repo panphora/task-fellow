@@ -7,6 +7,7 @@ var LocalStrategy = require('passport-local').Strategy;
 import { getCollection } from "./lib/db-connection";
 import expressSession from "express-session";
 const ObjectID = require('mongodb').ObjectID;
+const bcrypt = require('bcrypt');
 
 // The local strategy require a `verify` function which receives the credentials
 passport.use(new LocalStrategy(async function(username, password, cb) {
@@ -14,7 +15,14 @@ passport.use(new LocalStrategy(async function(username, password, cb) {
     let usersCollection = await getCollection("users");
     let currentUser = await usersCollection.findOne({ username });
 
-    if (!currentUser || currentUser.password !== password) {
+    if (!currentUser) { 
+      cb(null, false);
+      return;
+    }
+
+    let passwordMatches = await bcrypt.compare(password, currentUser.hash);
+
+    if (!passwordMatches) {
       cb(null, false);
       return;
     }
@@ -61,7 +69,8 @@ initApiRoutes({app});
 
 app.post('/sign-up', async function(req, res) {
   let usersCollection = await getCollection("users");
-  let result = await usersCollection.insertOne({username: req.body.username, password: req.body.password});
+  let hash = await bcrypt.hash(req.body.password, 14);
+  let result = await usersCollection.insertOne({username: req.body.username, hash: hash});
   res.redirect('/');
 });
 
