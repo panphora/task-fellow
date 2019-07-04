@@ -5,15 +5,19 @@
       "name": "Untitled stack",
       "tacks": [
         {
-          "text": "Resurrect dinosaurs!"
+          "text": "Resurrect dinosaurs!",
+          "id": "g43SEiu1kz"
         },
         {
-          "text": "Blow up the moon"
+          "text": "Blow up the moon",
+          "id": "4XJEuyi83B"
         },
         {
-          "text": "Solve global climate change"
+          "text": "Solve global climate change",
+          "id": "3HmKwBOZUs"
         }
-      ]
+      ],
+      "id": "EbJdC3Xf9q"
     }
   ]
 }
