@@ -1,4 +1,5 @@
 import './js/user-cookies';
+import './js/accounts';
 import { init, getDataFromRootNode, callSaveFunction } from 'remakejs/dist/bundle.es6';
 import Sortable from 'sortablejs';
 
@@ -34,12 +35,14 @@ Array.from(tacksListElems).forEach(tacksListElem => {
 // stacks sortable init
 
 let stacksListElem = document.querySelector(".stacks");
-Sortable.create(stacksListElem, {
-  group: "stacks",
-  onEnd: function (event) {
-    callSaveFunction({targetElement: stacksListElem})
-  }
-});
+if (stacksListElem) {
+  Sortable.create(stacksListElem, {
+    group: "stacks",
+    onEnd: function (event) {
+      callSaveFunction({targetElement: stacksListElem})
+    }
+  });
+}
 
 
 window.getDataFromRootNode = getDataFromRootNode;

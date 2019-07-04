@@ -1,15 +1,30 @@
 {% include "../../partials/head/index.njk" %}
 
-<form id="app" method="post" action="/sign-up">
-  <div>Sign up:</div>
-  <div>
-    <input type="text" name="username">
-  </div>
-  <div>
-    <input type="password" name="password">
-  </div>
-  <button type="submit">Sign up</button>
-</form>
+<div class="container">
+  <div class="columns">
+    <form id="app" class="column col-3 col-xs-12 col-mx-auto" method="post" action="/sign-up">
+      <h2>Sign up:</h2>
+      <div class="form-group">
+        <label class="form-label" for="username">Username:</label>
+        <input class="form-input" type="text" id="username" name="username">
+      </div>
+      <div class="form-group mb--1point5">
+        <label class="form-label" for="password">Password:</label>
+        <input class="form-input" type="text" id="password" name="password">
+      </div>
+      <button class="btn btn-primary" type="submit">Sign up</button>
+      <div class="invalid-password-message">
+        <div>Password must contain at least</div>
+        <ul>
+          <li>One number</li>
+          <li>One uppercase</li>
+          <li>One lowercase</li>
+          <li>One special character</li>
+        </ul>
+      </div>
+    </form>
+  </div> 
+</div>
 
 <script src="/dist/index.js"></script>
 
