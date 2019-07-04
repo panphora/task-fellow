@@ -2,8 +2,8 @@ import express from "express";
 import cookieParser from "cookie-parser";
 const app = express();
 
-import { initRenderedRoutes } from "./lib/initRenderedRoutes";
-import { initApiRoutes } from "./lib/initApiRoutes";
+import { initRenderedRoutes } from "./lib/init-rendered-routes";
+import { initApiRoutes } from "./lib/init-api-routes";
 
 // configue app
 app.use(cookieParser());
