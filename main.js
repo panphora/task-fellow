@@ -88,11 +88,11 @@ app.post('/signup', async function(req, res) {
 
   if (password.length < 8 || username.length < 1) {
     if (password.length < 8) {
-      req.flash("errors", "Your password must be at least 8 characters");
+      req.flash("error", "Your password must be at least 8 characters");
     }
 
     if (username.length < 1) {
-      req.flash("errors", "Please enter a username");
+      req.flash("error", "Please enter a username");
     }
 
     res.redirect('/signup');
@@ -105,7 +105,10 @@ app.post('/signup', async function(req, res) {
   res.redirect('/');
 });
 
-app.post('/login', passport.authenticate('local', { failureRedirect: '/login' }), function(req, res) {
+app.post('/login', passport.authenticate('local', { 
+  failureRedirect: '/login',
+  failureFlash: "Invalid username or password"
+}), function(req, res) {
   res.redirect('/');
 });
 
