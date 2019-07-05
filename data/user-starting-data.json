@@ -51,13 +51,16 @@
       ]
     },
     {
-      "name": "Feed fairies to cat",
+      "name": "Long term",
       "tacks": [
         {
-          "text": "Find fairies under a rock"
+          "text": "Build a rocketship"
         },
         {
-          "text": "Feed to Kibbles"
+          "text": "Go to Mars"
+        },
+        {
+          "text": "Build a habitat for a colony"
         }
       ]
     }
