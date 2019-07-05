@@ -9,6 +9,8 @@ import expressSession from "express-session";
 const ObjectID = require('mongodb').ObjectID;
 const bcrypt = require('bcrypt');
 const flash = require('connect-flash');
+const MongoStore = require('connect-mongo')(expressSession);
+
 
 // The local strategy require a `verify` function which receives the credentials
 passport.use(new LocalStrategy(async function(username, password, cb) {
@@ -48,15 +50,26 @@ passport.deserializeUser(async function(id, cb) {
 
 
 const app = express();
+const store = new MongoStore({
+  url: process.env.DATABASE_URI
+});
+
+// store.on('error', function(error) {
+//   console.error(error);
+// });
 
 import { initRenderedRoutes } from "./lib/init-rendered-routes";
 import { initApiRoutes } from "./lib/init-api-routes";
 
 // configue app
 app.use(expressSession({ 
-  secret: 'keyboard cat', 
-  resave: false, 
-  saveUninitialized: false 
+  secret: process.env.SESSION_SECRET, 
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 30
+  },
+  store: store,
+  resave: true, 
+  saveUninitialized: true 
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -81,7 +94,7 @@ app.post('/signup', async function(req, res) {
     if (username.length < 1) {
       req.flash("errors", "Please enter a username");
     }
-    
+
     res.redirect('/signup');
     return;
   }
@@ -93,6 +106,11 @@ app.post('/signup', async function(req, res) {
 });
 
 app.post('/login', passport.authenticate('local', { failureRedirect: '/login' }), function(req, res) {
+  res.redirect('/');
+});
+
+app.get('/logout', function(req, res) {
+  req.logout();
   res.redirect('/');
 });
 
