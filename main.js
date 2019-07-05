@@ -67,7 +67,7 @@ app.use(express.json());
 initRenderedRoutes({app});
 initApiRoutes({app});
 
-app.post('/sign-up', async function(req, res) {
+app.post('/signup', async function(req, res) {
   let usersCollection = await getCollection("users");
   let hash = await bcrypt.hash(req.body.password, 14);
   let result = await usersCollection.insertOne({username: req.body.username, hash: hash});
