@@ -29,7 +29,7 @@
     "nunjucks": "^3.2.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "remakejs": "^0.5.1",
+    "remakejs": "^0.6.1",
     "sortablejs": "^1.10.0-rc3"
   },
   "devDependencies": {
