@@ -17,8 +17,12 @@
       <a href="/" class="navbar-brand text-light mr-2">Task Fellow</a>
     </section>
     <section class="navbar-section">
-      <a href="/signup" class="btn">Sign up</a>
-      <a href="/login" class="btn btn-link text-light">Log in</a>
+      {% if user %}
+        <div class="text-light">Logged in as <b>{{ user.username }}</b></div>
+      {% else %}
+        <a href="/signup" class="btn">Sign up</a>
+        <a href="/login" class="btn btn-link text-light">Log in</a>
+      {% endif %}
     </section>
   </header>
   {% if flashErrors.length > 0 %}
