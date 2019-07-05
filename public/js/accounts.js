@@ -1,4 +1,4 @@
-let formElem = document.querySelector("[action='/sign-up']");
+let formElem = document.querySelector("[action='/signup']");
 
 if (formElem) {
   formElem.addEventListener("submit", function (event) {

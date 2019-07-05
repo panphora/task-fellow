@@ -2,12 +2,13 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 dotenv.config({ path: "variables.env" });
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 import { getCollection } from "./lib/db-connection";
 import expressSession from "express-session";
 const ObjectID = require('mongodb').ObjectID;
 const bcrypt = require('bcrypt');
+const flash = require('connect-flash');
 
 // The local strategy require a `verify` function which receives the credentials
 passport.use(new LocalStrategy(async function(username, password, cb) {
@@ -63,14 +64,31 @@ app.use(cookieParser());
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(flash());
 
 initRenderedRoutes({app});
 initApiRoutes({app});
 
 app.post('/signup', async function(req, res) {
+  let username = req.body.username;
+  let password = req.body.password;
+
+  if (password.length < 8 || username.length < 1) {
+    if (password.length < 8) {
+      req.flash("errors", "Your password must be at least 8 characters");
+    }
+
+    if (username.length < 1) {
+      req.flash("errors", "Please enter a username");
+    }
+    
+    res.redirect('/signup');
+    return;
+  }
+
   let usersCollection = await getCollection("users");
-  let hash = await bcrypt.hash(req.body.password, 14);
-  let result = await usersCollection.insertOne({username: req.body.username, hash: hash});
+  let hash = await bcrypt.hash(password, 14);
+  let result = await usersCollection.insertOne({username: username, hash: hash});
   res.redirect('/');
 });
 
