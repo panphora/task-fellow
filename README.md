@@ -1,8 +1,9 @@
 # Get the app running
 
 1. `npm install`
-2. `npm run dev`
-3. [enable livereload browser extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en)
+2. Rename the file `variables.env.example` to `variables.env` and fill it out
+3. `npm run dev`
+4. [enable livereload browser extension](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en)
 
 **Important:** Don't just run `node server.js` because the front-end JS won't get transpiled. Use `npm run dev` instead.
 
