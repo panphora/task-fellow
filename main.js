@@ -10,7 +10,11 @@ const ObjectID = require('mongodb').ObjectID;
 const bcrypt = require('bcrypt');
 const flash = require('connect-flash');
 const MongoStore = require('connect-mongo')(expressSession);
-
+// todo: move these 
+const util = require('util');
+const fs = require('fs');
+const path = require('path');
+const readFile = util.promisify(fs.readFile);
 
 // The local strategy require a `verify` function which receives the credentials
 passport.use(new LocalStrategy(async function(username, password, cb) {
@@ -101,8 +105,23 @@ app.post('/signup', async function(req, res) {
 
   let usersCollection = await getCollection("users");
   let hash = await bcrypt.hash(password, 14);
-  let result = await usersCollection.insertOne({username: username, hash: hash});
-  res.redirect('/');
+  let insertResult = await usersCollection.insertOne({username: username, hash: hash});
+  let user = insertResult.ops[0];
+
+  // attach starting data
+  let startingData = await readFile(path.join(__dirname, "./data/user-starting-data.json"), "utf8");
+  let updateResult = await usersCollection.updateOne(
+    { "_id" : user._id },
+    { $set: { appData: startingData } }
+  );
+
+  req.login(user, function (err) {
+    if (!err){
+      res.redirect('/');
+    } else {
+      res.redirect('/login');
+    }
+  });
 });
 
 app.post('/login', passport.authenticate('local', { 
