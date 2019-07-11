@@ -105,6 +105,14 @@ app.post('/signup', async function(req, res) {
   }
 
   let usersCollection = await getCollection("users");
+
+  let usernameTaken = await usersCollection.findOne({username});
+  if (usernameTaken) {
+    req.flash("error", "That username is taken, please try another one!");
+    res.redirect('/signup');
+    return;
+  }
+
   let hash = await bcrypt.hash(password, 14);
   let insertResult = await usersCollection.insertOne({username: username, hash: hash});
   let user = insertResult.ops[0];
