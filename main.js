@@ -15,6 +15,7 @@ const util = require('util');
 const fs = require('fs');
 const path = require('path');
 const readFile = util.promisify(fs.readFile);
+let writeAppDataToTempFiles = true; // good for debugging
 
 // The local strategy require a `verify` function which receives the credentials
 passport.use(new LocalStrategy(async function(username, password, cb) {
@@ -83,7 +84,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(flash());
 
-initRenderedRoutes({app});
+initRenderedRoutes({app, writeAppDataToTempFiles});
 initApiRoutes({app});
 
 app.post('/signup', async function(req, res) {
