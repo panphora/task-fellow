@@ -17,7 +17,7 @@ const path = require('path');
 const readFile = util.promisify(fs.readFile);
 // config
 const writeAppDataToTempFiles = true; // good for debugging
-const autoGenerateUniqueIds = false;
+const autoGenerateUniqueIds = true;
 
 // The local strategy require a `verify` function which receives the credentials
 passport.use(new LocalStrategy(async function(username, password, cb) {
